@@ -1,13 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap");
 
-body {
-  font-family: 'Dancing Script', cursive;
-}
 
 :root {
     --bg: #08080b;
     --bg-soft: #161616;
-    --text: #FDFAFC;
+    --text: #fdfafc;
     --text-soft: #b4a8b1d8;
     --text-primary: #bc2c97;
 }
@@ -22,8 +19,8 @@ body {
 body {
     background: var(--bg);
     font-family: "poppins", sans-serif;
-    /* display: flex;
-    flex-direction: column; */
+    display: flex;
+    flex-direction: column;
     justify-content: space-between;
     min-height: 100vh;
     color: var(--text);
