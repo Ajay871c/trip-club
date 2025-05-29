@@ -1,0 +1,116 @@
+.plansSection {
+    /* background-color: #; */
+    padding: 0 20px;
+    margin-top: 20px;
+    color: #fff;
+    text-align: center;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.card {
+    background: #ffffff0d;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    padding: 40px 25px;
+    border-radius: 20px;
+    max-width: 320px;
+    flex: 1 1 300px;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.popular {
+    border: 2px solid #f745d3;
+}
+
+.badge {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #4a00e0;
+    color: white;
+    padding: 4px 10px;
+    font-size: 0.7rem;
+    border-radius: 4px;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 10px;
+}
+
+.description {
+    font-size: 0.95rem;
+    color: #ccc;
+    margin-bottom: 20px;
+}
+
+.price {
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 20px 0 10px;
+}
+
+.price small {
+    font-size: 1rem;
+    color: #aaa;
+}
+
+.note {
+    font-size: 0.8rem;
+    color: #888;
+    margin-bottom: 20px;
+}
+
+.features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 30px;
+}
+
+.features li {
+    margin-bottom: 10px;
+    font-size: 0.95rem;
+    color: #aaffaa;
+    text-align: left;
+}
+
+.button {
+    background: #f745d3;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.button:hover {
+    background: #d630b1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .card {
+        max-width: 100%;
+    }
+
+    .features li {
+        text-align: center;
+    }
+}

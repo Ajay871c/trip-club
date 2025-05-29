@@ -1,0 +1,54 @@
+.option{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 50vh;
+    flex-direction: column;
+    gap: 30px;
+    width: 80%;
+    margin: 50px auto;
+}
+
+.optionTitle{
+    font-weight: bold;
+    font-size: 42px;
+}
+
+.optionDesc{
+    width: 70%;
+    font-size: 20px;
+}
+
+@media (max-width: 960px) {
+    .option {
+        width: 90%;
+        gap: 25px;
+    }
+
+    .optionTitle {
+        font-size: 34px;
+    }
+
+    .optionDesc {
+        width: 85%;
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 600px) {
+    .option {
+        width: 95%;
+        gap: 20px;
+        padding: 15px;
+    }
+
+    .optionTitle {
+        font-size: 26px;
+    }
+
+    .optionDesc {
+        width: 100%;
+        font-size: 16px;
+    }
+}

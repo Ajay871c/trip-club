@@ -1,0 +1,85 @@
+.testimonials {
+    background-color: #08080b;
+    color: #fff;
+    text-align: center;
+    padding: 80px 20px;
+    margin: 80px auto;
+}
+
+.title {
+    font-size: 2rem;
+    margin-bottom: 80px;
+
+}
+
+.cards {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+
+
+@media (min-width: 768px) {
+    .cards {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+
+.card {
+    background: #ffffff0d;
+    backdrop-filter: blur(0px);
+    -webkit-backdrop-filter: blur(0px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    border-radius: 10px;
+    padding: 30px;
+    max-width: 350px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover{
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+}
+
+.quote {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    line-height: 30px;
+    color: var(--text-soft);
+}
+
+.profile {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+
+    gap: 30px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.avatar {
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.name {
+    font-weight: bold;
+}
+
+.role {
+    font-size: 0.9rem;
+    color: #ccc;
+}
+
+.stars {
+    font-size: 1.2rem;
+    color: #c6ff00;
+}
