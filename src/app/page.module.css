@@ -1,4 +1,4 @@
-.hero {
+/* .hero {
     position: relative;
     min-height: 150vh;
     height: fit-content;
@@ -37,15 +37,31 @@
     background-size: 50px 50px, 50px 50px, 25px 25px, 25px 25px;
     opacity: 0.1;
     z-index: -1;
+} */
+
+.hero {
+    position: relative;
+    min-height: 150vh;
+    height: fit-content;
+    padding-top: 50px;
+    padding-bottom: 1px;
+    color: #fff;
+    z-index: 0;
+    background-image: url('/Hero.png'); 
+    background-size: cover; 
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed; 
 }
 
+
 .heroCard {
+    position: relative; /* Important for positioning the image inside */
     width: 100%;
     min-height: 80vh;
     background: #ffffff0d;
     backdrop-filter: blur(0px);
     -webkit-backdrop-filter: blur(0px);
-    border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     border-radius: 10px;
     display: flex;
@@ -55,7 +71,22 @@
     align-items: center;
     color: var(--text);
     gap: 30px;
+    overflow: hidden; /* Prevent image overflow */
 }
+
+.heroImage {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 50%;
+    height: auto;
+    max-height: 50%;
+    pointer-events: none;
+    object-fit: contain;
+    z-index: 0;
+    opacity: 0.7;
+}
+
 
 .title {
     font-size: 82px;
@@ -116,8 +147,10 @@
     .heroCard {
         padding: 20px;
         gap: 20px;
-        min-height: 70vh;
+        min-height: 60vh;
+        
     }
+
 
     .title {
         font-size: 48px;
@@ -160,6 +193,12 @@
 }
 
 @media (max-width: 600px) {
+    
+    .heroImage {
+        bottom: 0;
+        right: 50%;
+        transform: translateX(50%);
+    }
     .title {
         font-size: 36px;
     }

@@ -58,6 +58,7 @@ const Home = () => {
                     <a href="/" className='btn'>
                         Join the Club
                     </a>
+                    <img src="/img.png" alt="decor" className={styles.heroImage} />
                 </div>
                 <div className={styles.offerSec} id="about">
                     <h2 className={styles.offerSecTitle}>What We Offer</h2>
