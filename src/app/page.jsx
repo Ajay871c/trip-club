@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 import AOS from "aos";
 import { useEffect } from "react";
 import GreekGetaways from "@/components/GreekGetaways/GreekGetaways";
+import FAQ from "@/components/faq/FAQ";
 
 const cards = [
     {
@@ -121,6 +122,9 @@ const Home = () => {
             </div>
             <div className="container">
                 <Features />
+            </div>
+            <div className="container">
+                <FAQ />
             </div>
         </>
     );
