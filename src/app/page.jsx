@@ -10,6 +10,7 @@ import AOS from "aos";
 import { useEffect } from "react";
 import GreekGetaways from "@/components/GreekGetaways/GreekGetaways";
 import FAQ from "@/components/faq/FAQ";
+import TikTokVideos from "@/components/tictik/Tictok";
 
 const cards = [
     {
@@ -107,6 +108,9 @@ const Home = () => {
                         </div>
                     </div>
                 </div>
+            </div>
+            <div className="container">
+                <TikTokVideos />
             </div>
             <div className="container">
                 <GreekGetaways />
