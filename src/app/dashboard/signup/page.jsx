@@ -1,6 +1,30 @@
+"use client";
+
 import styles from "./page.module.css";
+import { useState } from "react";
 
 export default function SignupForm() {
+    const [message, setMessage] = useState("");
+
+    async function handleSubmit(event) {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+
+        const response = await fetch("/api/auth/signup", {
+            method: "POST",
+            body: formData,
+        });
+
+        const data = await response.json();
+        setMessage(data.message);
+
+        if (response.ok) {
+            // Redirect to login page after successful signup
+            window.location.href = "/login";
+        }
+    }
+
     return (
         <section className={styles.authSection}>
             <div className={styles.authCard}>
@@ -9,19 +33,17 @@ export default function SignupForm() {
                     Join us and start your journey!
                 </p>
 
-                <form
-                    action="/api/signup"
-                    method="POST"
-                    className={styles.form}
-                >
+                <form onSubmit={handleSubmit} className={styles.form}>
                     <div className={styles.inputGroup}>
                         <label htmlFor="name">Name</label>
                         <input id="name" name="name" type="text" required />
                     </div>
+
                     <div className={styles.inputGroup}>
                         <label htmlFor="email">Email</label>
                         <input id="email" name="email" type="email" required />
                     </div>
+
                     <div className={styles.inputGroup}>
                         <label htmlFor="password">Password</label>
                         <input
@@ -36,6 +58,18 @@ export default function SignupForm() {
                         Sign Up
                     </button>
                 </form>
+
+                {message && (
+                    <p
+                        className={
+                            message.toLowerCase().includes("success")
+                                ? styles.successMessage
+                                : styles.errorMessage
+                        }
+                    >
+                        {message}
+                    </p>
+                )}
 
                 <p className={styles.toggleText}>
                     Already have an account? <a href="/login">Login</a>

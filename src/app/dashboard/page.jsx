@@ -1,18 +1,38 @@
 import Image from "next/image";
 import styles from "./page.module.css";
+import { cookies } from "next/headers";
+import jwt from "jsonwebtoken";
 
 export default function DashboardPage() {
-    // Example: you would fetch real user data here with cookies/session
-    const user = {
-        name: "Jane Doe",
-        email: "jane@example.com",
-        profileImage: "/profile.jpg",
-        subscription: {
-            plan: "Premium",
-            price: "$2,999/mo",
-            status: "Active",
-            since: "March 2024",
-        },
+    const cookieStore = cookies();
+    const token = cookieStore.get("token")?.value;
+
+    let user = null;
+
+    if (token) {
+        try {
+            user = jwt.verify(token, process.env.JWT_SECRET || "yoursecretkey");
+            console.log("Decoded user:", user);
+        } catch (err) {
+            console.error("Invalid token");
+        }
+    }
+
+    if (!user) {
+        return (
+            <div className={styles.notLoggedIn}>
+                <h2>You must be logged in to view this page.</h2>
+                <a href="/login">Go to Login</a>
+            </div>
+        );
+    }
+
+    // Dummy subscription details — you can fetch from DB
+    const subscription = {
+        plan: "Premium",
+        price: "$2,999/mo",
+        status: "Active",
+        since: "March 2024",
     };
 
     return (
@@ -22,36 +42,36 @@ export default function DashboardPage() {
 
                 <div className={styles.profileCard}>
                     <div className={styles.left}>
-                        <Image
-                            src={user.profileImage}
-                            alt="Profile"
-                            width={100}
-                            height={100}
-                            className={styles.avatar}
-                        />
                         <div>
-                            <h2 className={styles.name}>{user.name}</h2>
+                            <h2 className={styles.name}>
+                                {user.name || "username"}
+                            </h2>
                             <p className={styles.email}>{user.email}</p>
-                            <button className={styles.editBtn}>
-                                Edit Profile
-                            </button>
+                            <form action="/api/auth/logout" method="POST">
+                                <button
+                                    type="submit"
+                                    className={styles.logoutBtn}
+                                >
+                                    Logout
+                                </button>
+                            </form>
                         </div>
                     </div>
 
                     <div className={styles.right}>
                         <h3>Subscription</h3>
                         <p>
-                            <strong>Plan:</strong> {user.subscription.plan}
+                            <strong>Plan:</strong> {subscription.plan}
                         </p>
                         <p>
-                            <strong>Price:</strong> {user.subscription.price}
+                            <strong>Price:</strong> {subscription.price}
                         </p>
                         <p>
-                            <strong>Status:</strong> {user.subscription.status}
+                            <strong>Status:</strong> {subscription.status}
                         </p>
                         <p>
                             <strong>Subscribed since:</strong>{" "}
-                            {user.subscription.since}
+                            {subscription.since}
                         </p>
                     </div>
                 </div>
