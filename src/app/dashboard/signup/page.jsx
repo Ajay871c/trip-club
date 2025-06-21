@@ -21,7 +21,7 @@ export default function SignupForm() {
 
         if (response.ok) {
             // Redirect to login page after successful signup
-            window.location.href = "/login";
+            window.location.href = "/dashboard/login";
         }
     }
 

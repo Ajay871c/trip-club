@@ -12,7 +12,7 @@ model User {
   name           String?
   email          String   @unique
   password       String
-  stripeCustomerId String?
+  stripeCustomerId String?  @unique
   subscriptions  Subscription[]
 }
 
