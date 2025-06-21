@@ -39,7 +39,7 @@ export async function POST(request) {
         return new Response(JSON.stringify({ message: "Login successful" }), {
             status: 200,
             headers: {
-                "Set-Cookie": `token=${token}; Path=/; HttpOnly; Max-Age=604800`,
+                "Set-Cookie": `token=${token}; Path=/;  Max-Age=604800`,
             },
         });
     } catch (error) {
