@@ -1,0 +1,15 @@
+.loaderWrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 3px;
+    width: 100%;
+    background: transparent;
+    z-index: 9999;
+}
+
+.loaderBar {
+    height: 100%;
+    background: linear-gradient(to right, #6366f1, #a855f7);
+    transition: width 0.3s ease;
+}
